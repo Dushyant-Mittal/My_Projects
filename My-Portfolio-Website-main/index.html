@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dushyant Mittal — Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@0,500;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Boot sequence preloader -->
+<div class="preloader" id="preloader">
+  <pre class="boot-log" id="bootLog"></pre>
+  <div class="boot-bar"><div class="boot-bar-fill" id="bootBarFill"></div></div>
+</div>
+
+<!-- Animated background -->
+<canvas id="bgCanvas"></canvas>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-grid"></div>
+
+<!-- Custom cursor dot -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Top status bar (VS Code style) -->
+<header class="statusbar">
+  <div class="statusbar-left">
+    <span class="dot dot-red"></span>
+    <span class="dot dot-yellow"></span>
+    <span class="dot dot-green"></span>
+    <span class="statusbar-title">dushyant-mittal — portfolio.dev</span>
+  </div>
+  <nav class="statusbar-nav" id="statusbarNav">
+    <a href="#about" class="nav-link">01.about</a>
+    <a href="#skills" class="nav-link">02.skills</a>
+    <a href="#work" class="nav-link">03.work</a>
+    <a href="#contact" class="nav-link">04.contact</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="app-shell">
+
+  <!-- File explorer sidebar -->
+  <aside class="explorer" id="explorer">
+    <div class="explorer-heading">EXPLORER</div>
+    <div class="explorer-tree">
+      <div class="tree-folder open" data-target="folder-portfolio">
+        <span class="chevron">▾</span> portfolio
+      </div>
+      <div class="tree-children" id="folder-portfolio">
+        <a href="#hero" class="tree-file active"><span class="file-icon js"></span>hero.js</a>
+        <a href="#about" class="tree-file"><span class="file-icon md"></span>about.md</a>
+        <a href="#skills" class="tree-file"><span class="file-icon json"></span>skills.json</a>
+        <a href="#work" class="tree-file"><span class="file-icon jsx"></span>projects.jsx</a>
+        <a href="#contact" class="tree-file"><span class="file-icon html"></span>contact.html</a>
+      </div>
+    </div>
+
+    <div class="explorer-heading explorer-heading-git">GIT — main</div>
+    <div class="git-info">
+      <p><span class="git-badge">M</span> availability.status</p>
+      <p><span class="git-badge added">A</span> patent-published.txt</p>
+    </div>
+  </aside>
+
+  <!-- Main editor area -->
+  <main class="editor">
+
+    <!-- HERO -->
+    <section class="pane hero" id="hero">
+      <div class="editor-tabs">
+        <div class="tab active"><span class="file-icon js"></span>hero.js</div>
+      </div>
+      <div class="editor-body hero-body">
+        <div class="line-numbers" id="heroLineNumbers"></div>
+        <div class="hero-grid">
+          <div class="code-content">
+            <pre class="code-block" id="typedCode"></pre>
+            <div class="hero-actions">
+              <a href="#work" class="btn btn-primary magnetic">
+                <span class="btn-caret">$</span> run --view-projects
+              </a>
+              <a href="#contact" class="btn btn-ghost magnetic">
+                <span class="btn-caret">$</span> contact --me
+              </a>
+            </div>
+          </div>
+
+          <div class="profile-panel">
+            <div class="profile-frame" id="profileFrame">
+              <div class="profile-ring"></div>
+              <div class="profile-ring profile-ring-2"></div>
+              <div class="profile-photo">
+                <!-- Replace this src with your own headshot -->
+                <img src="profile.jpg" alt="Portrait of Dushyant Mittal" id="profileImg">
+                <div class="profile-fallback" id="profileFallback">DM</div>
+              </div>
+              <span class="orbit-badge badge-1">JS</span>
+              <span class="orbit-badge badge-2">⚛</span>
+              <span class="orbit-badge badge-3">Node</span>
+              <span class="orbit-badge badge-4">{ }</span>
+            </div>
+            <div class="status-chip">
+              <span class="status-dot"></span> Available for work
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">
+        <span>scroll.next()</span>
+        <div class="scroll-cue-line"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="pane" id="about">
+      <div class="editor-tabs">
+        <div class="tab active"><span class="file-icon md"></span>about.md</div>
+      </div>
+      <div class="editor-body about-body">
+        <div class="line-numbers" data-lines="26"></div>
+        <div class="code-content reveal">
+          <p class="md-h1"># About Me</p>
+          <p class="md-p">I'm <strong>Dushyant Mittal</strong>, a Computer Science Engineering student who likes building things end-to-end — from a REST API and its database schema up to the interface someone actually clicks on. I spend a lot of my time on the parts that make an app feel responsive rather than just functional.</p>
+
+          <p class="md-p">Currently pursuing my B.Tech CSE at <strong>G.L. Bajaj Institute of Technology
+          and Management, Delhi NCR</strong> (2024–2028), I've built full-stack apps with React
+          and Node, integrated LLMs into developer tooling, and I stay sharp by solving
+          problems across competitive programming platforms.</p>
+
+          <div class="edu-block">
+            <div class="edu-row">
+              <div class="edu-left">
+                <span class="edu-school">G.L. Bajaj Institute of Technology and Management, Greater Noida</span>
+                <span class="edu-degree">B.Tech CSE — 8.28 CGPA</span>
+              </div>
+              <span class="edu-date">Aug 2024 – June 2028</span>
+            </div>
+            <div class="edu-row">
+              <div class="edu-left">
+                <span class="edu-school">B.D.M. Public School, Siyana (Bulandshahr)</span>
+                <span class="edu-degree">Senior Secondary — CBSE, 91.3%</span>
+              </div>
+              <span class="edu-date">2024</span>
+            </div>
+            <div class="edu-row">
+              <div class="edu-left">
+                <span class="edu-school">B.D.M. Public School, Siyana (Bulandshahr)</span>
+                <span class="edu-degree">Matriculation — CBSE, 94%</span>
+              </div>
+              <span class="edu-date">2022</span>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-card">
+              <span class="stat-num" data-count="1800">0</span>
+              <span class="stat-label">problems solved</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-count="4">0</span>
+              <span class="stat-label">major projects</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-count="1">0</span>
+              <span class="stat-label">patent published</span>
+            </div>
+          </div>
+
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <span class="ach-icon">◆</span>
+              <div><strong>Patent Published</strong> — successfully published a patent in the domain of vehicle systems.</div>
+            </div>
+            <div class="achievement-item">
+              <span class="ach-icon">◆</span>
+              <div><strong>NPTEL Elite Certification</strong> — C Programming, scored 62%.</div>
+            </div>
+            <div class="achievement-item">
+              <span class="ach-icon">◆</span>
+              <div><strong>Competitive Programming</strong> — 1800+ problems solved across LeetCode, GeeksforGeeks, Codeforces and CodeChef.</div>
+            </div>
+          </div>
+
+          <blockquote class="md-quote">"Good code is a courtesy to the next person who reads it — including future me."</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="pane" id="skills">
+      <div class="editor-tabs">
+        <div class="tab active"><span class="file-icon json"></span>skills.json</div>
+      </div>
+      <div class="editor-body skills-body">
+        <div class="line-numbers" data-lines="30"></div>
+        <div class="code-content reveal">
+          <p class="section-eyebrow">// what I reach for</p>
+          <h2 class="section-title">Skills &amp; Tools</h2>
+<!-- 
+          <div class="skills-grid" id="skillsGrid">
+            <div class="skill-card" data-level="90">
+              <div class="skill-top"><span>JavaScript / React.js</span><span class="skill-pct">90%</span></div>
+              <div class="skill-bar"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-card" data-level="82">
+              <div class="skill-top"><span>Node.js / Express.js</span><span class="skill-pct">82%</span></div>
+              <div class="skill-bar"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-card" data-level="85">
+              <div class="skill-top"><span>C / C++</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-card" data-level="78">
+              <div class="skill-top"><span>Python</span><span class="skill-pct">78%</span></div>
+              <div class="skill-bar"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-card" data-level="80">
+              <div class="skill-top"><span>MongoDB / MySQL</span><span class="skill-pct">80%</span></div>
+              <div class="skill-bar"><div class="skill-fill"></div></div>
+            </div>
+            <div class="skill-card" data-level="83">
+              <div class="skill-top"><span>Tailwind CSS / HTML5 / CSS3</span><span class="skill-pct">83%</span></div>
+              <div class="skill-bar"><div class="skill-fill"></div></div>
+            </div>
+          </div> -->
+
+          <div class="tool-chips">
+            <span class="chip">C#</span><span class="chip">Golang</span><span class="chip">React Native</span>
+            <span class="chip">Bootstrap5</span><span class="chip">Git</span><span class="chip">GitHub</span>
+            <span class="chip">VS Code</span><span class="chip">JWT</span><span class="chip">Gemini API</span>
+            <span class="chip">Windows</span><span class="chip">Linux</span><span class="chip">Power BI</span>
+            <span class="chip">MS Excel</span><span class="chip">SQL</span><span class="chip">MongoDB</span><span class="chip">Java</span><span>Data Structures</span><span>Algorithms</span>
+            <span class="chip">C</span><span class="chip">C++</span><span class="chip">Javascript</span><span class="chip">React.js</span><span class="chip">React Native</span><span class="chip">Python</span>
+            <span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap5</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+          </div>
+
+          <p class="section-eyebrow coding-eyebrow">// competitive programming</p>
+          <div class="coding-profiles">
+            <a href="https://leetcode.com/u/DUSHYANT-MITTAL/" target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-orange)"></span> LeetCode
+            </a>
+        
+            <a href="https://www.geeksforgeeks.org/profile/dushyantm247" target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-green)"></span> GeeksforGeeks
+            </a>
+          
+          
+            <a href="https://codeforces.com/profile/dushyantmittal65" target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-blue)"></span> CodeForces
+            </a>
+            <a href="https://www.codechef.com/users/dishu65" target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-purple)"></span> CodeChef
+            </a>
+          </div>
+
+ <p class="section-eyebrow coding-eyebrow">// Soft Skills</p>
+<div class="coding-profiles">
+<a href=" " target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-purple)"></span> Adaptability
+            </a>
+<a href=" " target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-purple)"></span> Leadership
+            </a>    
+<a href=" " target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-purple)"></span> Team Player
+            </a>     
+<a href=" " target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-purple)"></span> Communication
+            </a>   
+<a href=" " target="_blank" rel="noopener" class="profile-pill">
+              <span class="pill-dot" style="background:var(--accent-purple)"></span> Problem Solving Skills
+            </a>                                       
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="pane" id="work">
+      <div class="editor-tabs">
+        <div class="tab active"><span class="file-icon jsx"></span>projects.jsx</div>
+      </div>
+      <div class="editor-body work-body">
+        <div class="line-numbers" data-lines="40"></div>
+        <div class="code-content reveal">
+          <p class="section-eyebrow">// selected builds</p>
+          <h2 class="section-title">Projects</h2>
+
+          <div class="project-list">
+
+            <article class="project-card tilt-card">
+              <div class="project-thumb thumb-1"><div class="thumb-glyph">{ }</div></div>
+              <div class="project-info">
+                <span class="project-tag">01 — Finance App · Jan–Feb 2026</span>
+                <h3>Full-Stack AI Finance Platform:</h3>
+                <p>Build a full-stack AI-powered finance platform with secure authentication, real-time expense tracking, and AI-driven financial insights. Integrated AI receipt scanning, automated budget alerts using Inngest, and bot protection with Arcjet Shield. Designed scalable backend architecture using Supabase and Prisma for efficient data management and live updates.</p>
+                <div class="project-stack"><span>React.js 19</span><span>Next.js 15</span><span>Supabase</span><span>Tailwind CSS</span><span>Prisma</span><span>Clerk</span><span>Inngest</span><span>Arcjet</span></div>
+                <a href="https://github.com/Dushyant-Mittal/AI-Finance-Platform" class="project-link">View code here →</a>
+              </div>
+            </article>
+
+            <article class="project-card reverse tilt-card">
+              <div class="project-thumb thumb-2"><div class="thumb-glyph">&lt;/&gt;</div></div>
+              <div class="project-info">
+                <span class="project-tag">02 — AI Reviewing Tool · Nov–Dec 2025</span>
+                <h3>AI Code Reviewer:</h3>
+                <p>Built an AI-powered code review platform leveraging the Gemini API to detect bugs, analyze code quality, and generate intelligent optimization suggestions. Enabled real-time feedback and automated review workflows, improving development efficiency and code reliability.</p>
+                <div class="project-stack"><span>React.js</span><span>Node.js</span><span>Gemini API</span><span>PrismJS</span></div>
+                <a href="https://github.com/Dushyant-Mittal/CODE-REVIEWER/tree/main" class="project-link">View code here →</a>
+              </div>
+            </article>
+
+            <article class="project-card tilt-card">
+              <div class="project-thumb thumb-3"><div class="thumb-glyph">λ</div></div>
+              <div class="project-info">
+                <span class="project-tag">03 — OTP Fraud Detection App · Sept–Oct 2025</span>
+                <h3>GeoOTP- Location Based OTP Tracking System:</h3>
+                <p>Created a location-bound OTP system validating real-time GPS + IP via Haversine-based geo-fencing to prevent SIM-swap/phishing frauds. Added IP/device checks, SIM-swap detection GPS-fallback mechanisms for secure OTP verification under edge cases.</p>
+                <div class="project-stack"><span>React.js</span><span>Nodemailer</span><span>MongoDB</span><span>Express.js</span><span>Axios</span></div>
+                <a href="https://github.com/Dushyant-Mittal/GeoOTP--Fraud-Detection" class="project-link">View code here →</a>
+              </div>
+            </article>
+
+            <article class="project-card tilt-card">
+              <div class="project-thumb thumb-3"><div class="thumb-glyph">λ</div></div>
+              <div class="project-info">
+                <span class="project-tag">04 — Finance Tracking App · Sept–Oct 2025</span>
+                <h3>AI Expense Tracker:</h3>
+                <p>Built a full-stack AI-powered expense tracker using the PERN stack (PostgreSQL, Express, React, Node.js) and Tailwind CSS v4, featuring JWT/bcrypt authentication, auto-seeded categories, and full CRUD transaction management with search and filtering Engineered an interactive analytics dashboard with KPI cards, trend charts, and category breakdowns, supporting multiple time-range views (30D/3M/Monthly/Yearly) via client-side data aggregation. Integrated Google Gemini AI to generate personalized monthly financial summaries, health scores, savings tips, and budget verdicts, with all insights persisted as JSONB in PostgreSQL for historical review.</p>
+                <div class="project-stack"><span>React.js</span><span>Node.js</span><span>Postgres</span><span>Express.js</span><span>Tailwind CSS</span><span>Gemini API</span></div>
+                <a href="https://github.com/Dushyant-Mittal/AI-Expense-Tracker" class="project-link">View code here →</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="pane" id="contact">
+      <div class="editor-tabs">
+        <div class="tab active"><span class="file-icon html"></span>contact.html</div>
+      </div>
+      <div class="editor-body contact-body">
+        <div class="line-numbers" data-lines="20"></div>
+        <div class="code-content reveal">
+          <p class="section-eyebrow">// let's build something</p>
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="contact-sub">Open to internships, freelance work, and interesting problems.
+          Based in Greater Noida, India — reply time is usually under a day.</p>
+
+          <div class="contact-meta">
+            <a href="mailto:dushyantmittal65@gmail.com" class="contact-meta-item">
+              <span class="meta-label">Email</span> dushyantmittal65@gmail.com
+            </a>
+            <a href="tel:+918941881213" class="contact-meta-item">
+              <span class="meta-label">Phone</span> +91 89XXX XXXXX
+            </a>
+            <span class="contact-meta-item static">
+              <span class="meta-label">Location</span> Greater Noida, India
+            </span>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <label for="name">name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-row">
+              <label for="email">email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+            <div class="form-row">
+              <label for="message">message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit magnetic">
+              <span class="btn-caret">$</span> <span id="submitLabel">send --message</span>
+            </button>
+          </form>
+
+          <div class="socials">
+            <a href="https://github.com/DUSHYANT-MITTAL" target="_blank" rel="noopener" class="social-link">GitHub</a>
+            <a href="https://linkedin.com/in/dushyant-5986" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+            <a href="mailto:dushyantmittal65@gmail.com" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>// built from scratch, no template — © <span id="year"></span> Dushyant Mittal</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
